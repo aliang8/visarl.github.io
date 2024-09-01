@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content=".">
-  <meta name="keywords" content="ViSaRL, Visual Reinforcement Learning, Representation Learning">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ViSaRL: Visual Reinforcement Learning Guided by Human Saliency</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description"
+      content=".">
+    <meta name="keywords"
+      content="ViSaRL, Visual Reinforcement Learning, Representation Learning">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ViSaRL: Visual Reinforcement Learning Guided by Human Saliency</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
@@ -22,47 +24,48 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet">
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-</head>
-<body>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+  </head>
+  <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://aliang8@github.io">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-        <!-- <div class="navbar-dropdown">
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+          <a class="navbar-item" href="https://aliang8@github.io">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More Research
+            </a>
+            <!-- <div class="navbar-dropdown">
           <a class="navbar-item" href="https://hypernerf.github.io">
             HyperNeRF
           </a>
@@ -76,56 +79,56 @@
             PhotoShape
           </a>
         </div> -->
+          </div>
+        </div>
+
       </div>
-    </div>
+    </nav>
 
-  </div>
-</nav>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">ViSaRL: Visual Reinforcement
+                Learning Guided by Human Saliency</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://aliang8@github.io">Anthony Liang</a>,</span>
+                <span class="author-block">
+                  <a href="https://jessethomason.com/">Jesse Thomason</a>,</span>
+                <span class="author-block">
+                  <a href="https://ebiyik.github.io/">Erdem Biyik</a>
+                </span>
+              </div>
 
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">University of Southern California</span>
+              </div>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">ViSaRL: Visual Reinforcement Learning Guided by Human Saliency</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://aliang8@github.io">Anthony Liang</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://jessethomason.com/">Jesse Thomason</a><sup>1</sup>,</span>
-              <span class="author-block">
-              <a href="https://ebiyik.github.io/">Erdem Biyik</a><sup>`</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Southern California,</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2403.10940"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/2403.10940"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
                   </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2403.10940"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/2403.10940"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
                   </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
+                  <!-- Video Link. -->
+                  <!-- <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -134,18 +137,18 @@
                   <span>Video</span>
                 </a>
               </span> -->
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/aliang8/visarl"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
+                  <!-- Code Link. -->
+                  <span class="link-block">
+                    <a href="https://github.com/aliang8/visarl"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
                   </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <!-- <span class="link-block">
+                  <!-- Dataset Link. -->
+                  <!-- <span class="link-block">
                 <a href="https://github.com/google/nerfies/releases/tag/0.1"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -153,177 +156,405 @@
                   </span>
                   <span>Data</span>
                   </a> -->
-            </div>
+                </div>
 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p style="text-align: center; font-size: 24px; margin-bottom: 30px;">
+      <strong><em>Can human visual attention help agents perform visual control
+          tasks?</em></strong>
+    </p>
+
+    <!-- Teaser Picture -->
+    <section class="hero teaser">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div style="text-align: center;">
+            <img src="./static/images/teaser.png" alt="teaser" style="width: 80%;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Training robots to perform complex control tasks from high-dimensional
+                pixel input using reinforcement learning (RL) is sample-inefficient,
+                because image observations are comprised primarily of task-irrelevant
+                information.
+                By contrast, humans are able to visually attend to task-relevant objects
+                and areas.
+                Based on this insight, we introduce <span
+                  style="color: maroon; font-weight: bold">Visual Saliency-Guided
+                  Reinforcement
+                  Learning (ViSaRL).</span>
+              </p>
+              <p>
+                Using ViSaRL to learn visual representations significantly improves the
+                success rate, sample efficiency, and
+                generalization of an RL agent on diverse tasks including DeepMind
+                Control benchmark, robot manipulation
+                in simulation and on a real robot.
+                We present approaches for incorporating saliency into both CNN and
+                Transformer-based encoders.
+                We show that visual representations learned using ViSaRL are robust to
+                various sources of visual perturbations
+                including perceptual noise and scene variations.
+                ViSaRL nearly doubles success rate on the real-robot tasks compared to
+                the baseline which does not use saliency.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">ViSaRL</h2>
+
+            <div class="content has-text-justified">
+              <p>
+                We present Visual Saliency Reinforcement Learning (ViSaRL), a general
+                approach for incorporating human-annotated saliency
+                maps as an inductive bias for learned visual representations.
+                The key idea of ViSaRL is to train a visual encoder using both RGB and
+                saliency inputs and an RL policy that operates over
+                lower dimensional image representations as shown in Figure 1.
+                By using a multimodal autoencoder trained using a self-supervised
+                objective, our learned representations attend to the
+                most salient parts of an image for downstream task learning making them
+                robust to visual distractors.
+                To circumvent the expensive process of manually annotating saliency
+                maps,
+                we train a state-of-the-art saliency predictor
+                using only a few human-annotated examples to pseudo-label RGB
+                observations
+                with saliency.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div>
+            <img src="./static/images/mmae_model.png" alt="mmae">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Saliency Analysis -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Full-width Title -->
+        <div class="columns">
+          <div class="column">
+            <h2 class="title is-3 has-text-centered">Masked Reconstruction with
+              MultiMAE</h2>
+          </div>
+        </div>
+
+        <!-- Content and Image Side by Side -->
+        <div class="columns is-vcentered">
+          <!-- Text Column -->
+          <div class="column is-5">
+            <div class="content has-text-justified">
+              MultiMAE predictions for different random masks. We visualize the
+              masked predictions for RGB observation from each of the four tasks. For
+              each input image, we randomly sample three different masks from a uniform
+              distribution between RGB and saliency. Only 1/4 of the total patches are
+              unmasked. Even when there are a few unmasked patches from one modality,
+              the reconstructions are still very accurate due to cross-modal
+              interaction.
+              Saliency maps are shown with color for the purposes of visualization.
+            </div>
+          </div>
+
+          <!-- Image Column -->
+          <div class="column is-7">
+            <div style="text-align: center;">
+              <img src="./static/images/saliency.png" alt="saliency"
+                style="width: 100%;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quality of the Saliency Model -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Full-width Title -->
+        <div class="columns">
+          <div class="column">
+            <h2 class="title is-3 has-text-centered">Quality of Saliency Model</h2>
+          </div>
+        </div>
+
+        <!-- Content and Image Side by Side -->
+        <div class="columns is-vcentered">
+          <!-- Text Column -->
+          <div class="content has-text-justified">
+            <p>
+              We find that zero-shot evaluation using a pretrained PiCANet and even
+              state-of-the-art Vision Language Models fail to correctly identify the
+              task-relevant regions of the image necessitating the use of
+              human-annotation to guide the saliency training. Thus, we train a new
+              saliency model for each task.
+
+              We apply random vertical and horizontal flip for data augmentation to
+              prevent overfitting on our small dataset.
+              We measure the quality of the saliency model on two evaluation metrics
+              following prior work: <b>F-measure score</b> and <b>Mean Absolute Error
+                (MAE)</b>.
+            </p>
+
+            <p>
+              We set &zeta;<sup>2</sup> to 0.3. Saliency maps are binarized before
+              computing <i>F<sub>&zeta;</sub></i>. MAE computes the average absolute
+              per-pixel difference between the predicted saliency maps and ground truth
+              saliency maps. On our test dataset, we obtain an <i>F<sub>&zeta;</sub></i>
+              score of 0.78 ± 0.02 and MAE of 0.004 ± 0.003 averaged across all tasks,
+              consistent with results reported in prior work.
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section>
+  <!-- Simulation Experiment and Results -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Simulation Experiments</h2>
 
+          <div class="hero-body">
+            <img src="./static/images/results_plot.png" alt="mmae">
+          </div>
 
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
         </div>
       </div>
     </div>
-  </div>
-</section> -->
+  </section>
 
+  <!-- Real World Results and Videos -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Real World Experiments</h2>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Training robots to perform complex control tasks from high-dimensional pixel input using reinforcement learning (RL) is sample-inefficient, 
-            because image observations are comprised primarily of task-irrelevant information.
-          </p>
-          <p>
-            By contrast, humans are able to visually attend to task-relevant objects and areas.
-            Based on this insight, we introduce Visual Saliency-Guided Reinforcement Learning (ViSaRL).
-          </p>
-          <p>
-            Using ViSaRL to learn visual representations significantly improves the success rate, sample efficiency, and 
-            generalization of an RL agent on diverse tasks including DeepMind Control benchmark, robot manipulation 
-            in simulation and on a real robot.
-            We present approaches for incorporating saliency into both CNN and Transformer-based encoders.
-            We show that visual representations learned using ViSaRL are robust to various sources of visual perturbations 
-            including perceptual noise and scene variations.
-            ViSaRL nearly doubles success rate on the real-robot tasks compared to the baseline which does not use saliency.
-          </p>
+          <div class="hero-body">
+            <div class="container is-max-desktop" style="display: flex;">
+              <div
+                style="flex: 1; padding-right: 20px; display: flex; align-items: flex-start; text-align: left;">
+                <p><b>Evaluation Tasks</b>. Four Meta-World (top) simulation tasks and
+                  four
+                  real-robot tabletop manipulation tasks (bottom).
+                </p>
+              </div>
+              <div style="flex: 1;">
+                <img src="./static/images/real_world_envs.png" alt="real_world_envs">
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; margin-top: 30px;">
+            <!-- Text Container (40% Width) -->
+            <div style="flex: 0 0 40%; text-align: left; margin-right: 20px;">
+              <h3 class="title is-3" style="font-size: 1.5rem;">Real World Results</h3>
+
+              <p>
+                <b>ViSaRL scales to real-robot tasks and is robust to distractor
+                  objects</b>.
+                Even on the easier Pick Apple task, using saliency augmented
+                representations, <span
+                  style="color: blue; font-weight: bold">RGB+Saliency</span>, improves
+                the success rate over <span
+                  style="color: green; font-weight: bold">RGB</span>.
+                On tasks with distractor objects and longer horizon tasks such as Put
+                Apple in Bowl, ViSaRL representations nearly <b>doubles</b> the success
+                rate.
+              </p>
+            </div>
+            <!-- Image Container (60% Width) -->
+            <div style="flex: 0 0 60%; text-align: center;">
+              <img src="./static/images/real_world_results.png" alt="real_world_results"
+                style="width: 100%; vertical-align: middle;">
+              Task success rates on 10 evaluation rollouts.
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; margin-top: 50px;">
+            <!-- Text Container (30% Width) -->
+            <div style="flex: 0 0 30%; text-align: left; margin-right: 20px;">
+              <h3 class="title is-3" style="font-size: 1.5rem;">Robot Policy
+                Architecture</h3>
+
+              <p>
+                The downstream policy is trained using standard imitation learning.
+                The state representation is the visual embedding and the robot
+                proprioceptive information (e.g., joint positions).
+                This yields a 271-dimensional state representation.
+                The policy is an LSTM with 256-dimensional hidden states.
+                The final hidden state of the LSTM is processed by a 2-layer MLP to
+                predict a continuous action.
+                The action space, <strong>A &isin; R<sup>7</sup></strong>, consists of
+                <strong>&Delta;(x, y, z, &phi;, &theta;, &psi;)</strong>, and a
+                continuous scalar value for gripper speed.
+              </p>
+            </div>
+
+            <!-- Image Container (70% Width) -->
+            <div style="flex: 0 0 70%; text-align: center;">
+              <img src="./static/images/robot_il_model.png" alt="robot_policy"
+                style="width: 100%; vertical-align: middle;">
+            </div>
+          </div>
+
+          <!-- Videos -->
+          <div
+            style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
+            <div>
+              <h3 class="title is-3"
+                style="font-size: 1.5rem; margin-bottom: 50px;">Real World
+                Rollouts</h3>
+            </div>
+            <div class="columns is-centered"
+              style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
+              <div
+                style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
+                <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Pick Up
+                  Apple</h3>
+              </div>
+              <div style="flex: 2; display: flex; gap: 20px;">
+                <img
+                  src="./static/videos/pickup_apple/rgb_only/rgb_only_fail_eval_0.gif"
+                  alt="pick up apple fail" width="250" />
+                <img
+                  src="./static/videos/pickup_apple/rgb+saliency/rgb+saliency_success_eval_0.gif"
+                  alt="pick up apple success" width="250" />
+              </div>
+            </div>
+
+            <div class="columns is-centered"
+              style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
+              <div
+                style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
+                <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Pick Up
+                  Red Block with Distractor Objects</h3>
+              </div>
+              <div style="flex: 2; display: flex; gap: 20px;">
+                <img
+                  src="./static/videos/pickup_red_block_with_distractor_objects/rgb_only/rgb_only_fail_eval_0.gif"
+                  alt="pick up red block fail" width="250" />
+                <img
+                  src="./static/videos/pickup_red_block_with_distractor_objects/rgb+saliency/rgb+saliency_success_eval_0.gif"
+                  alt="pick up red block success" width="250" />
+              </div>
+            </div>
+
+            <div class="columns is-centered"
+              style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
+              <div
+                style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
+                <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Put Bread
+                  on Plate</h3>
+              </div>
+              <div style="flex: 2; display: flex; gap: 20px;">
+                <img
+                  src="./static/videos/put_bread_on_plate/rgb_only/rgb_only_fail_eval_2.gif"
+                  alt="put bread on plate fail" width="250" />
+                <img
+                  src="./static/videos/put_bread_on_plate/rgb+saliency/rgb+saliency_success_eval_0.gif"
+                  alt="put bread on plate success" width="250" />
+              </div>
+            </div>
+
+            <div class="columns is-centered"
+              style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
+              <div
+                style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
+                <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Put Apple
+                  in Bowl with Distractor Objects</h3>
+              </div>
+              <div style="flex: 2; display: flex; gap: 20px;">
+                <img
+                  src="./static/videos/put_apple_in_bowl_with_distractor_objects/rgb_only/rgb_only_fail_eval_0.gif"
+                  alt="put apple in bowl fail" width="250" />
+                <img
+                  src="./static/videos/put_apple_in_bowl_with_distractor_objects/rgb+saliency/rgb+saliency_success_eval_0.gif"
+                  alt="put apple in bowl success" width="250" />
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
-    <!--/ Abstract. -->
+    </section>
 
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
-  </div>
-</section>
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{liang2024visarl,
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@article{liang2024visarl,
   author    = {Liang, Anthony and Thomason, Jesse and B{\i}y{\i}k, Erdem},
   title     = {ViSaRL: Visual Reinforcement Learning Guided by Human Saliency},
   journal   = {IROS},
   year      = {2024},
 }</code></pre>
-  </div>
-</section>
+      </div>
+    </section>
 
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/aliang8" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            Website design borrowed from  <a
-              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
-          </p>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <a class="icon-link"
+            href="./static/videos/nerfies_paper.pdf">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+          <a class="icon-link" href="https://github.com/aliang8"
+            class="external-link"
+            disabled>
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This website is licensed under a <a rel="license"
+                  href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                  Commons Attribution-ShareAlike 4.0 International License</a>.
+              </p>
+              <p>
+                Website design borrowed from <a
+                  href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-</body>
+  </body>
 </html>
