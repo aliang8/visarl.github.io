@@ -94,7 +94,7 @@
                 Learning Guided by Human Saliency</h1>
               <div class="is-size-5 publication-authors">
                 <span class="author-block">
-                  <a href="https://aliang8@github.io">Anthony Liang</a>,</span>
+                  <a href="https://aliang8.github.io">Anthony Liang</a>,</span>
                 <span class="author-block">
                   <a href="https://jessethomason.com/">Jesse Thomason</a>,</span>
                 <span class="author-block">
@@ -165,21 +165,10 @@
       </div>
     </section>
 
-    <p style="text-align: center; font-size: 24px; margin-bottom: 30px;">
+    <p style="text-align: center; font-size: 24px; margin-bottom: 0px;">
       <strong><em>Can human visual attention help agents perform visual control
           tasks?</em></strong>
     </p>
-
-    <!-- Teaser Picture -->
-    <section class="hero teaser">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <div style="text-align: center;">
-            <img src="./static/images/teaser.png" alt="teaser" style="width: 80%;">
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="section">
       <div class="container is-max-desktop">
@@ -202,8 +191,9 @@
               </p>
               <p>
                 Using ViSaRL to learn visual representations significantly improves the
-                success rate, sample efficiency, and
-                generalization of an RL agent on diverse tasks including DeepMind
+                <b><i>success rate, sample efficiency, and
+                    generalization</i></b> of an RL agent on diverse tasks including
+                DeepMind
                 Control benchmark, robot manipulation
                 in simulation and on a real robot.
                 We present approaches for incorporating saliency into both CNN and
@@ -211,8 +201,6 @@
                 We show that visual representations learned using ViSaRL are robust to
                 various sources of visual perturbations
                 including perceptual noise and scene variations.
-                ViSaRL nearly doubles success rate on the real-robot tasks compared to
-                the baseline which does not use saliency.
               </p>
             </div>
           </div>
@@ -220,30 +208,41 @@
       </div>
     </section>
 
+    <!-- Teaser Picture -->
+    <section class="hero teaser" style="margin-bottom: -50px;">
+      <div class="hero-body">
+        <div class="container is-max-desktop" style="text-align: center;">
+          <div style="text-align: center;">
+            <img src="./static/images/teaser.png" alt="teaser" style="width: 80%;">
+          </div>
+          ViSaRL trains a saliency prediction model from a few human-annotated saliency
+          maps. This model is used to augment an offline image dataset with saliency. A
+          visual encoder is pretrained with the dataset and used during downstream
+          policy learning to generate latent representations of the agent’s
+          observations.
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
+          <div class="column">
             <h2 class="title is-3">ViSaRL</h2>
 
             <div class="content has-text-justified">
               <p>
-                We present Visual Saliency Reinforcement Learning (ViSaRL), a general
-                approach for incorporating human-annotated saliency
-                maps as an inductive bias for learned visual representations.
-                The key idea of ViSaRL is to train a visual encoder using both RGB and
-                saliency inputs and an RL policy that operates over
-                lower dimensional image representations as shown in Figure 1.
+                <b>The key idea of ViSaRL is to train a visual encoder using both RGB
+                  and saliency inputs and an RL policy that operates over
+                  lower dimensional image representations.</b>
                 By using a multimodal autoencoder trained using a self-supervised
                 objective, our learned representations attend to the
                 most salient parts of an image for downstream task learning making them
                 robust to visual distractors.
                 To circumvent the expensive process of manually annotating saliency
-                maps,
-                we train a state-of-the-art saliency predictor
+                maps, we train a state-of-the-art saliency predictor
                 using only a few human-annotated examples to pseudo-label RGB
-                observations
-                with saliency.
+                observations with saliency.
               </p>
             </div>
           </div>
@@ -253,9 +252,59 @@
 
     <section class="hero teaser">
       <div class="hero-body">
-        <div class="container is-max-desktop">
+        <div class="container is-max-desktop" style="text-align: center;">
           <div>
-            <img src="./static/images/mmae_model.png" alt="mmae">
+            <img src="./static/images/mmae_model.png" alt="mmae" style="width: 80%;">
+          </div>
+          MultiMAE employs a self-supervised objective in which masked patches for both
+          input modalities are reconstructed given only the visible patches. The
+          pretrained model is frozen and used for extracting representations during
+          policy learning.
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulation Experiment and Results -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h2 class="title is-3">Simulation Experiments</h2>
+
+            <div class="content has-text-justified">
+              <p>
+                We show quantitative results of our approach with two different
+                encoder backbones, CNN and Transformer, across multiple simulated
+                environments including the Meta-World manipulation and DMC
+                benchmarks.
+              </p>
+            </div>
+            <div class="hero teaser is-max-desktop container">
+              <div>
+                <img src="./static/images/results_plot.png" alt="mmae">
+              </div>
+              <p>
+                <b>Learning curves</b> for four robot manipulation tasks in Meta-World
+                evaluated by task success rate. <b>(Top)</b> CNN encoder methods.
+                <b>(Bottom)</b> Transformer encoder methods.
+              </p>
+            </div>
+
+            <div class="content has-text-justified" style="margin-left: 80px">
+              <p
+                style="color: maroon; font-weight: bold; font-size: 20px; margin-top: 20px">
+                Insights:
+              </p>
+              <ol>
+                <li>Saliency input improves downstream task success rates.</li>
+                <li>A saliency channel achieves the best task success rate for CNN
+                  encoder.</li>
+                <li>Training encoder with saliency improves RGB-only success rates at
+                  inference time.</li>
+                <li>Using saliency in both pretraining and inference yields the best
+                  performance.</li>
+              </ol>
+            </div>
           </div>
         </div>
       </div>
@@ -264,35 +313,28 @@
     <!-- Saliency Analysis -->
     <section class="section">
       <div class="container is-max-desktop">
-        <!-- Full-width Title -->
-        <div class="columns">
-          <div class="column">
-            <h2 class="title is-3 has-text-centered">Masked Reconstruction with
-              MultiMAE</h2>
-          </div>
-        </div>
-
         <!-- Content and Image Side by Side -->
         <div class="columns is-vcentered">
           <!-- Text Column -->
-          <div class="column is-5">
-            <div class="content has-text-justified">
+          <div class="column">
+            <h2 class="title is-3" style="font-size: 1.5rem;">Masked
+              Reconstruction with
+              MultiMAE</h2>
+
+            <div class="content has-text-justified is-6">
               MultiMAE predictions for different random masks. We visualize the
               masked predictions for RGB observation from each of the four tasks. For
               each input image, we randomly sample three different masks from a uniform
-              distribution between RGB and saliency. Only 1/4 of the total patches are
-              unmasked. Even when there are a few unmasked patches from one modality,
-              the reconstructions are still very accurate due to cross-modal
-              interaction.
-              Saliency maps are shown with color for the purposes of visualization.
+              distribution between RGB and saliency. Even when there are a few unmasked
+              patches from one modality, the reconstructions are still very accurate due
+              to cross-modal interaction.
             </div>
           </div>
-
-          <!-- Image Column -->
-          <div class="column is-7">
+          <div class="column is-7 teaser">
             <div style="text-align: center;">
-              <img src="./static/images/saliency.png" alt="saliency"
+              <img src="./static/images/mask_inputs.png" alt="masked_inputs"
                 style="width: 100%;">
+              Masked input images and RGB / saliency reconstruction by MultiMAE.
             </div>
           </div>
         </div>
@@ -302,19 +344,15 @@
     <!-- Quality of the Saliency Model -->
     <section class="section">
       <div class="container is-max-desktop">
-        <!-- Full-width Title -->
-        <div class="columns">
-          <div class="column">
-            <h2 class="title is-3 has-text-centered">Quality of Saliency Model</h2>
-          </div>
-        </div>
-
         <!-- Content and Image Side by Side -->
         <div class="columns is-vcentered">
           <!-- Text Column -->
           <div class="content has-text-justified">
+            <h2 class="title is-3" style="font-size: 1.5rem;">Quality
+              of Saliency Model</h2>
+
             <p>
-              We find that zero-shot evaluation using a pretrained PiCANet and even
+              Zero-shot evaluation using a pretrained PiCANet and even
               state-of-the-art Vision Language Models fail to correctly identify the
               task-relevant regions of the image necessitating the use of
               human-annotation to guide the saliency training. Thus, we train a new
@@ -323,192 +361,186 @@
               We apply random vertical and horizontal flip for data augmentation to
               prevent overfitting on our small dataset.
               We measure the quality of the saliency model on two evaluation metrics
-              following prior work: <b>F-measure score</b> and <b>Mean Absolute Error
+              following prior work: <b>F-measure score (<i>F<sub>&zeta;</sub></i>)</b>
+              and <b>Mean Absolute Error
                 (MAE)</b>.
-            </p>
-
-            <p>
-              We set &zeta;<sup>2</sup> to 0.3. Saliency maps are binarized before
-              computing <i>F<sub>&zeta;</sub></i>. MAE computes the average absolute
-              per-pixel difference between the predicted saliency maps and ground truth
-              saliency maps. On our test dataset, we obtain an <i>F<sub>&zeta;</sub></i>
+              On our test dataset, we obtain an <i>F<sub>&zeta;</sub></i>
               score of 0.78 ± 0.02 and MAE of 0.004 ± 0.003 averaged across all tasks,
               consistent with results reported in prior work.
             </p>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Simulation Experiment and Results -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <h2 class="title is-3">Simulation Experiments</h2>
-
-          <div class="hero-body">
-            <img src="./static/images/results_plot.png" alt="mmae">
+          <div class="column is-6 teaser">
+            <div style="text-align: center;">
+              <img src="./static/images/saliency.png" alt="masked_inputs"
+                style="width: 100%;">
+              Saliency map predictions for held out test images in real world setup.
+            </div>
           </div>
-
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Real World Results and Videos -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <h2 class="title is-3">Real World Experiments</h2>
+    <!-- Real World Results and Videos -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h2 class="title is-3">Real World Experiments</h2>
 
-          <div class="hero-body">
-            <div class="container is-max-desktop" style="display: flex;">
-              <div
-                style="flex: 1; padding-right: 20px; display: flex; align-items: flex-start; text-align: left;">
+            <div class="hero-body teaser">
+              <div class="container is-max-desktop">
+                <div style="flex: 1;">
+                  <img src="./static/images/real_world_envs.png" alt="real_world_envs"
+                    style="width: 60%;">
+                </div>
                 <p><b>Evaluation Tasks</b>. Four Meta-World (top) simulation tasks and
                   four
                   real-robot tabletop manipulation tasks (bottom).
                 </p>
               </div>
-              <div style="flex: 1;">
-                <img src="./static/images/real_world_envs.png" alt="real_world_envs">
+            </div>
+
+            <div style="display: flex; align-items: center; margin-top: 30px;">
+              <!-- Text Container (40% Width) -->
+              <div style="flex: 0 0 40%; text-align: left; margin-right: 20px;">
+                <h3 class="title is-3" style="font-size: 1.5rem;">Real World
+                  Results</h3>
+
+                <p>
+                  <b>ViSaRL scales to real-robot tasks and is robust to distractor
+                    objects</b>.
+                  Even on the easier Pick Apple task, using saliency augmented
+                  representations, <span
+                    style="color: blue; font-weight: bold">RGB+Saliency</span>, improves
+                  the success rate over <span
+                    style="color: green; font-weight: bold">RGB</span>.
+                  On tasks with distractor objects and longer horizon tasks such as Put
+                  Apple in Bowl, ViSaRL representations nearly <b>doubles</b> the
+                  success
+                  rate.
+                </p>
+              </div>
+              <!-- Image Container (60% Width) -->
+              <div style="flex: 0 0 60%; text-align: center;">
+                <img src="./static/images/real_world_results.png"
+                  alt="real_world_results"
+                  style="width: 100%; vertical-align: middle;">
+                Task success rates on 10 evaluation rollouts.
               </div>
             </div>
+
+            <div style="display: flex; align-items: center; margin-top: 50px;">
+              <!-- Text Container (30% Width) -->
+              <div style="flex: 0 0 30%; text-align: left; margin-right: 20px;">
+                <h3 class="title is-3" style="font-size: 1.5rem;">Robot Policy
+                  Architecture</h3>
+
+                <p>
+                  The downstream policy is trained using standard imitation learning.
+                  The state representation is the visual embedding and the robot
+                  proprioceptive information (e.g., joint positions).
+                  This yields a 271-dimensional state representation.
+                  The policy is an LSTM with 256-dimensional hidden states.
+                  The final hidden state of the LSTM is processed by a 2-layer MLP to
+                  predict a continuous action.
+                  The action space, <strong>A &isin; R<sup>7</sup></strong>, consists of
+                  <strong>&Delta;(x, y, z, &phi;, &theta;, &psi;)</strong>, and a
+                  continuous scalar value for gripper speed.
+                </p>
+              </div>
+
+              <!-- Image Container (70% Width) -->
+              <div style="flex: 0 0 70%; text-align: center;">
+                <img src="./static/images/robot_il_model.png" alt="robot_policy"
+                  style="width: 100%; vertical-align: middle;">
+              </div>
+            </div>
+
+            <!-- Videos -->
+            <div
+              style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
+              <div>
+                <h3 class="title is-3"
+                  style="font-size: 1.5rem; margin-bottom: 50px;">Real World
+                  Rollouts (Left: <span
+                    style="color: green; font-weight: bold">RGB-only</span>, Right:
+                  <span
+                    style="color: blue; font-weight: bold">RGB
+                    +
+                    Saliency)</span></h3>
+              </div>
+              <div class="columns is-centered"
+                style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
+                <div
+                  style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
+                  <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Pick Up
+                    Apple</h3>
+                </div>
+                <div style="flex: 2; display: flex; gap: 20px;">
+                  <img
+                    src="./static/videos/pickup_apple/rgb_only/rgb_only_fail_eval_0.gif"
+                    alt="pick up apple fail" width="250" />
+                  <img
+                    src="./static/videos/pickup_apple/rgb+saliency/rgb+saliency_success_eval_0.gif"
+                    alt="pick up apple success" width="250" />
+                </div>
+              </div>
+
+              <div class="columns is-centered"
+                style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
+                <div
+                  style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
+                  <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Pick Up
+                    Red Block with Distractor Objects</h3>
+                </div>
+                <div style="flex: 2; display: flex; gap: 20px;">
+                  <img
+                    src="./static/videos/pickup_red_block_with_distractor_objects/rgb_only/rgb_only_fail_eval_0.gif"
+                    alt="pick up red block fail" width="250" />
+                  <img
+                    src="./static/videos/pickup_red_block_with_distractor_objects/rgb+saliency/rgb+saliency_success_eval_0.gif"
+                    alt="pick up red block success" width="250" />
+                </div>
+              </div>
+
+              <div class="columns is-centered"
+                style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
+                <div
+                  style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
+                  <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Put
+                    Bread
+                    on Plate</h3>
+                </div>
+                <div style="flex: 2; display: flex; gap: 20px;">
+                  <img
+                    src="./static/videos/put_bread_on_plate/rgb_only/rgb_only_fail_eval_2.gif"
+                    alt="put bread on plate fail" width="250" />
+                  <img
+                    src="./static/videos/put_bread_on_plate/rgb+saliency/rgb+saliency_success_eval_0.gif"
+                    alt="put bread on plate success" width="250" />
+                </div>
+              </div>
+
+              <div class="columns is-centered"
+                style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
+                <div
+                  style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
+                  <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Put
+                    Apple
+                    in Bowl with Distractor Objects</h3>
+                </div>
+                <div style="flex: 2; display: flex; gap: 20px;">
+                  <img
+                    src="./static/videos/put_apple_in_bowl_with_distractor_objects/rgb_only/rgb_only_fail_eval_0.gif"
+                    alt="put apple in bowl fail" width="250" />
+                  <img
+                    src="./static/videos/put_apple_in_bowl_with_distractor_objects/rgb+saliency/rgb+saliency_success_eval_0.gif"
+                    alt="put apple in bowl success" width="250" />
+                </div>
+              </div>
+            </div>
+
           </div>
-
-          <div style="display: flex; align-items: center; margin-top: 30px;">
-            <!-- Text Container (40% Width) -->
-            <div style="flex: 0 0 40%; text-align: left; margin-right: 20px;">
-              <h3 class="title is-3" style="font-size: 1.5rem;">Real World Results</h3>
-
-              <p>
-                <b>ViSaRL scales to real-robot tasks and is robust to distractor
-                  objects</b>.
-                Even on the easier Pick Apple task, using saliency augmented
-                representations, <span
-                  style="color: blue; font-weight: bold">RGB+Saliency</span>, improves
-                the success rate over <span
-                  style="color: green; font-weight: bold">RGB</span>.
-                On tasks with distractor objects and longer horizon tasks such as Put
-                Apple in Bowl, ViSaRL representations nearly <b>doubles</b> the success
-                rate.
-              </p>
-            </div>
-            <!-- Image Container (60% Width) -->
-            <div style="flex: 0 0 60%; text-align: center;">
-              <img src="./static/images/real_world_results.png" alt="real_world_results"
-                style="width: 100%; vertical-align: middle;">
-              Task success rates on 10 evaluation rollouts.
-            </div>
-          </div>
-
-          <div style="display: flex; align-items: center; margin-top: 50px;">
-            <!-- Text Container (30% Width) -->
-            <div style="flex: 0 0 30%; text-align: left; margin-right: 20px;">
-              <h3 class="title is-3" style="font-size: 1.5rem;">Robot Policy
-                Architecture</h3>
-
-              <p>
-                The downstream policy is trained using standard imitation learning.
-                The state representation is the visual embedding and the robot
-                proprioceptive information (e.g., joint positions).
-                This yields a 271-dimensional state representation.
-                The policy is an LSTM with 256-dimensional hidden states.
-                The final hidden state of the LSTM is processed by a 2-layer MLP to
-                predict a continuous action.
-                The action space, <strong>A &isin; R<sup>7</sup></strong>, consists of
-                <strong>&Delta;(x, y, z, &phi;, &theta;, &psi;)</strong>, and a
-                continuous scalar value for gripper speed.
-              </p>
-            </div>
-
-            <!-- Image Container (70% Width) -->
-            <div style="flex: 0 0 70%; text-align: center;">
-              <img src="./static/images/robot_il_model.png" alt="robot_policy"
-                style="width: 100%; vertical-align: middle;">
-            </div>
-          </div>
-
-          <!-- Videos -->
-          <div
-            style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
-            <div>
-              <h3 class="title is-3"
-                style="font-size: 1.5rem; margin-bottom: 50px;">Real World
-                Rollouts</h3>
-            </div>
-            <div class="columns is-centered"
-              style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
-              <div
-                style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
-                <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Pick Up
-                  Apple</h3>
-              </div>
-              <div style="flex: 2; display: flex; gap: 20px;">
-                <img
-                  src="./static/videos/pickup_apple/rgb_only/rgb_only_fail_eval_0.gif"
-                  alt="pick up apple fail" width="250" />
-                <img
-                  src="./static/videos/pickup_apple/rgb+saliency/rgb+saliency_success_eval_0.gif"
-                  alt="pick up apple success" width="250" />
-              </div>
-            </div>
-
-            <div class="columns is-centered"
-              style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
-              <div
-                style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
-                <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Pick Up
-                  Red Block with Distractor Objects</h3>
-              </div>
-              <div style="flex: 2; display: flex; gap: 20px;">
-                <img
-                  src="./static/videos/pickup_red_block_with_distractor_objects/rgb_only/rgb_only_fail_eval_0.gif"
-                  alt="pick up red block fail" width="250" />
-                <img
-                  src="./static/videos/pickup_red_block_with_distractor_objects/rgb+saliency/rgb+saliency_success_eval_0.gif"
-                  alt="pick up red block success" width="250" />
-              </div>
-            </div>
-
-            <div class="columns is-centered"
-              style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
-              <div
-                style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
-                <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Put Bread
-                  on Plate</h3>
-              </div>
-              <div style="flex: 2; display: flex; gap: 20px;">
-                <img
-                  src="./static/videos/put_bread_on_plate/rgb_only/rgb_only_fail_eval_2.gif"
-                  alt="put bread on plate fail" width="250" />
-                <img
-                  src="./static/videos/put_bread_on_plate/rgb+saliency/rgb+saliency_success_eval_0.gif"
-                  alt="put bread on plate success" width="250" />
-              </div>
-            </div>
-
-            <div class="columns is-centered"
-              style="display: flex; align-items: center; width: 100%; max-width: 1200px; margin-bottom: 30px;">
-              <div
-                style="flex: 1; text-align: left; padding-left: 100px; padding-right: 20px;">
-                <h3 style="color: maroon; font-weight: bold; font-size: 20px;">Put Apple
-                  in Bowl with Distractor Objects</h3>
-              </div>
-              <div style="flex: 2; display: flex; gap: 20px;">
-                <img
-                  src="./static/videos/put_apple_in_bowl_with_distractor_objects/rgb_only/rgb_only_fail_eval_0.gif"
-                  alt="put apple in bowl fail" width="250" />
-                <img
-                  src="./static/videos/put_apple_in_bowl_with_distractor_objects/rgb+saliency/rgb+saliency_success_eval_0.gif"
-                  alt="put apple in bowl success" width="250" />
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
